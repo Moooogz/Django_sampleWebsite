@@ -18,7 +18,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request,"You have been login!")
-            return redirect('mainpage')            
+            return redirect('home')            
         else:
             messages.success(request,"Wrong Credentials!")
             return render(request, 'login.html',{})
@@ -28,10 +28,11 @@ def login_user(request):
    
     
 def mainPage(request):
-    return render(request, 'mainpage.html',{})
+    return render(request, 'home.html',{})
 
 
 def logout_user(request):
+    messages.success(request,"You logout successfully")
     logout(request)
     return render(request, 'logout.html',{})
    

@@ -1,29 +1,86 @@
 {% extends 'basepage.html' %}
 
 {% block content%}
+<h2> Patients Information</h2>
+<hr/>
+<table class="table table-borderless table-sm">
+ {% comment %} <thead class="bg-secondary bg-gradient">
+    <tr>
+      <th scope="col" colspan="3"></th>         
+    </tr>
+  </thead>  {% endcomment %}
+  <tbody>      
+     
+    <tr>        
+      <td><strong>Patients ID:</strong>  {{ patient_record.id}}</td> 
+      <td><strong>Time Admitted</strong>  {{ patient_record.created_at}}</td>
+   </tr>
 
-<div class="card">
-    <div class="card-header">
-        {{ patient_record.first_name}} {{patient_record.last_name}}
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+      <tr>
+         <td ><strong>Name:</strong> {{patient_record.first_name}} {{patient_record.last_name}}</td>
+         <td><strong>Age:</strong>  {{ patient_record.age}}</td> 
+         <td><strong>Gender:</strong>  {{ patient_record.gender}}</td> 
+      </tr>
 
-  
+      <tr>        
+        <td><strong>Address:</strong>  {{ patient_record.address}}</td> 
+        <td><strong>Contact Number:</strong>  {{ patient_record.contact_number}}</td>
+     </tr>
 
-<h1> Patient Details:</h1>
-{{ patient_record.id}}</br>
-{{ patient_record.first_name}} {{patient_record.last_name}}</br>
-{{ patient_record.age}}</br>
-{{ patient_record.gender}}</br>
-{{ patient_record.contact_number}}</br>
-{{ patient_record.address}}</br>
-{{ patient_record.remarks}}</br>
-{{ patient_record.created_at}}</br>
+     <tr>     
+        <td colspan="3"><strong>Medical History:</strong>  {{ patient_record.remarks}}</td>
+     </tr>  
+  </tbody>
+</table>
+
+<table class="table table-bordered table-sm">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col" colspan="4">Patients Medication</th>         
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>1.  </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>2.  </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      
+      <tr>
+        <td>3.  </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      
+      <tr>
+        <td>4.  </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      
+      <tr>
+        <td>5.  </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      
+      
+     
+
+  </tbody>
+</table> 
+
 
 
 {%endblock%}

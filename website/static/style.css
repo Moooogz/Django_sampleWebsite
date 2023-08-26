@@ -2,8 +2,9 @@
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 10% 0 10%;
   margin: auto;
+ 
 }
 .form {
   position: relative;
@@ -12,6 +13,7 @@
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 30px;
+  margin-bottom: 5% ;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

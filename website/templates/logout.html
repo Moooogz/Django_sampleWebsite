@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Labaguis Neuro Clinic</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-page">
+	
+  <div class="form" method="POST">
+	<img class="logo" src="{% static 'logo.png' %}" width="50" height="50" >
+	
+    <h1>Successfully Log out!</h1>
+    <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="{% static 'script.js' %}"></script>
+
+</body>
+</html>

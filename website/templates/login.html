@@ -5,14 +5,15 @@
   <meta charset="UTF-8">
   <title>Labaguis Neuro Clinic</title>
   <link rel="stylesheet" href="{% static 'style.css' %}">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
 <!-- partial:index.partial.html -->
+    
 <div class="login-page">
 	
   <div class="form">
-	<img class="logo" src="{% static 'logo.png' %}" width="50" height="50" >
+	<img class="logo" src="{% static 'logo.png' %}" width="50" height="80" >
 	
     <form class="register-form">
 		<br/>
@@ -22,14 +23,26 @@
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
-    <form class="login-form">
-		
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
+    
+    <form class="login-form"  method="POST">
+      {% csrf_token %}
+      
+      <input type="text" placeholder="username" name="uName" required/>
+      <input type="password" placeholder="password" name="pWord" required/>
+      <button type="submit">login</button>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
+      
     </form>
+    
   </div>
+  {% if messages %}
+    {% for message in messages  %}
+    <div class="alert alert-danger" role="alert">
+      {{message}}
+    </div>
+      
+    {% endfor %}
+  {% endif %}
 </div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="{% static 'script.js' %}"></script>

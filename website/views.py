@@ -58,7 +58,7 @@ def deleterecord(request,pk):
 def addpatient(request):
     if request.user.is_authenticated:
         data = {}
-        data['first_name']="Mark Dave"
+        data['first_name']="Mark Daved"
         data['last_name']= "Dizon"
         data['age']="28"
         data['gender']="male"

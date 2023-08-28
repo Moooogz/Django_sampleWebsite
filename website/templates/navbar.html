@@ -8,7 +8,19 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
+          </li>  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-light">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4 bg-dark">
+        <a href="{% url 'home' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple "><i
+            class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+       
+    </div>
+  </nav>
+  <!-- Sidebar -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>

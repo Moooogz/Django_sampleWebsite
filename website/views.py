@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Patient
+from .forms import PatientForm
 
 def home(request):
     patients = Patient.objects.all()
@@ -46,3 +47,24 @@ def patient_record(request, pk):
     else:
         messages.success(request,"You Must Be Logged In To View That Page...")
         return redirect('login')
+    
+def deleterecord(request,pk):
+    if request.user.is_authenticated:
+        delete_record = Patient.objects.get(id=pk)
+        delete_record.delete()
+        messages.success(request,"Deleted Successfully!")
+        return redirect('home')
+
+def addpatient(request):
+    if request.user.is_authenticated:
+        data = {}
+        data['first_name']="Mark Dave"
+        data['last_name']= "Dizon"
+        data['age']="28"
+        data['gender']="male"
+        data['address']="Malamig"
+        data['contact_number']="099953288475"
+        data['remarks']="nice one"        
+        newRecord = PatientForm(data)
+        newRecord.save()
+    return redirect('home')

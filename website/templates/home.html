@@ -5,33 +5,56 @@
 <hr/>
 {% if patients %}
   
-<table class="table table-hover table-bordered table-sm">
-    <thead class="table-dark bg-gradient">
+<table class="table table-hover table-bordered table-sm border-secondary">
+    <thead class="bg-dark">
       <tr>
-        <th scope="col">Patients ID</th>
-        <th scope="col">Patient Name</th>
-        <th scope="col">Age</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Contact number</th>
-        <th scope="col">Address</th>
-        <th scope="col">Remarks</th>
-        <th scope="col">Admitted Data</th>
-        <td>Actions</td>
+        <th scope="col" class="text-light">Patients ID</th>
+        <th scope="col" class="text-light">Patient Name</th>
+        <th scope="col" class="text-light">Age</th>
+        <th scope="col" class="text-light">Gender</th>
+        <th scope="col" class="text-light">Contact number</th>
+        <th scope="col" class="text-light">Address</th>
+        <th scope="col" class="text-light">Remarks</th>
+        <th scope="col" class="text-light">Date Admitted</th>
+        <th scope="col" class="text-light">Actions</th>
         
       </tr>
     </thead>
     <tbody>      
         {% for patient in patients  %}
-        <tr>
-            <td>{{ patient.id}}</td>
-            <td>{{ patient.first_name}} {{patient.last_name}}</td>
-            <td>{{ patient.age}}</td>
-            <td>{{ patient.gender}}</td>
-            <td>{{ patient.contact_number}}</td>
-            <td>{{ patient.address}}</td>
-            <td>{{ patient.remarks}}</td>
-            <td>{{ patient.created_at}}</td>
-            <td><a href="{% url 'record' patient.id%}">view record</a></td>
+        <tr aria-label="Example 10px high ">
+            <td class="fs-10">{{ patient.id}}</td>
+            <td class="fs-10">{{ patient.first_name}} {{patient.last_name}}</td>
+            <td class="fs-10">{{ patient.age}}</td>
+            <td class="fs-10">{{ patient.gender}}</td>
+            <td class="fs-10">{{ patient.contact_number}}</td>
+            <td class="fs-10">{{ patient.address}}</td>
+            <td class="fs-10">{{ patient.remarks}}</td>
+            <td class="fs-10">{{ patient.created_at}}</td>
+            <td class="fs-10">
+             
+              <ul class="list-inline m-0">
+                <li class="list-inline-item">
+                  <form action="/record/{{patient.id}}">
+                    <button class="btn btn-primary btn-sm rounded-1" data-toggle="tooltip" data-placement="top" title="View details"><i class="fa fa-table"></i></button>
+                  </form> 
+                </li>
+                <li class="list-inline-item">
+                 
+                    <button class="btn btn-success btn-sm rounded-1"  data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                 
+                </li>
+                <li class="list-inline-item">
+                  <form action="/addpatient">
+                    <button class="btn btn-danger btn-sm rounded-1"  data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                  </form>
+                </li>
+            </ul>
+         
+
+
+             
+                </td>
             
         </tr>
         {% endfor %}

@@ -64,7 +64,7 @@ def addpatient(request):
         data['gender']="male"
         data['address']="Malamig"
         data['contact_number']="099953288475"
-        data['remarks']="nice one"        
+        data['remarks']="nice one 2"        
         newRecord = PatientForm(data)
         newRecord.save()
     return redirect('home')
